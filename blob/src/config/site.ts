@@ -20,7 +20,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: 'https://github.com/yourusername/my-nextjs-app',
+    github: 'https://github.com/legolaswyq/blob',
     docs: '/docs',
   },
   metadata: {

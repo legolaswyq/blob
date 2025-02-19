@@ -28,19 +28,14 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/privacy" className="text-gray-600 hover:text-gray-900">
-                  Privacy Policy
-                </Link>
-              </li>
+              
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>Email: info@example.com</li>
-              <li>Phone: (555) 123-4567</li>
-              <li>Address: 123 Main St, City, Country</li>
+              <li>Email: legolaswyq@gmail.com</li>
+              <li>Phone: 0221041307</li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Sign In - Walter Wang{% endblock %}
+{% block title %}Register - Walter Wang{% endblock %}
 
 {% block content %}
 <div class="flex flex-col items-center">
@@ -8,13 +8,26 @@
         <div class="container px-4 md:px-6 mx-auto">
             <div class="flex flex-col items-center space-y-8 text-center">
                 <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                    Sign In
+                    Create an Account
                 </h1>
                 <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-                    Welcome back! Please sign in to your account.
+                    Join our community by creating a new account.
                 </p>
                 <div class="w-full max-w-md mx-auto mt-8">
-                    <form class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" method="POST" action="{{ url_for('signin') }}">
+                    <form class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" method="POST" action="{{ url_for('register') }}">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                Name
+                            </label>
+                            <input 
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                id="name" 
+                                type="text" 
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+                        </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                                 Email
@@ -23,8 +36,8 @@
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                 id="email" 
                                 type="email" 
-                                placeholder="Enter your email"
                                 name="email"
+                                placeholder="Enter your email"
                                 required
                             >
                         </div>
@@ -36,30 +49,27 @@
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
                                 id="password" 
                                 type="password" 
-                                placeholder="Enter your password"
                                 name="password"
+                                placeholder="Choose a password"
                                 required
                             >
+                            <p class="text-sm text-gray-500">Password must be at least 8 characters long</p>
                         </div>
                         <div class="flex items-center justify-between">
                             <button 
-                                class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" 
                                 type="submit"
                             >
-                                Sign In
+                                Register
                             </button>
                         </div>
-                        <div class="text-center mt-4 space-y-4">
-                            <a class="inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800" href="#">
-                                Forgot Password?
-                            </a>
-                            <div class="pt-4 border-t">
-                                <p class="text-gray-600 mb-2">Don't have an account?</p>
-                                <a href="{{ url_for('register') }}" 
-                                   class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md w-full">
-                                    Register Now
+                        <div class="text-center mt-4">
+                            <p class="text-sm text-gray-600">
+                                Already have an account? 
+                                <a href="{{ url_for('signin') }}" class="font-bold text-blue-600 hover:text-blue-800">
+                                    Sign in
                                 </a>
-                            </div>
+                            </p>
                         </div>
                     </form>
                 </div>

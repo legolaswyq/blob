@@ -13,8 +13,35 @@
             padding: 0 1rem;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(function(message) {
+                setTimeout(function() {
+                    message.style.transition = 'opacity 0.5s ease-out';
+                    message.style.opacity = '0';
+                    setTimeout(function() {
+                        message.remove();
+                    }, 500);
+                }, 3000);
+            });
+        });
+    </script>
 </head>
 <body>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="fixed top-4 right-4 z-50">
+                {% for category, message in messages %}
+                    <div class="flash-message p-4 mb-4 rounded-lg {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
     <!-- Header -->
     <header class="bg-white shadow-sm">
         <nav class="container mx-auto px-4 py-4">
@@ -24,9 +51,16 @@
                     <a href="/" class="hover:text-blue-600">Home</a>
                     <a href="/about" class="hover:text-blue-600">About</a>
                     <a href="/contact" class="hover:text-blue-600">Contact</a>
-                    <a href="/signin" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
-                        Sign In
-                    </a>
+                    {% if current_user.is_authenticated %}
+                        <span class="text-gray-600">{{ current_user.email }}</span>
+                        <a href="/signout" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md">
+                            Sign Out
+                        </a>
+                    {% else %}
+                        <a href="/signin" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                            Sign In
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </nav>

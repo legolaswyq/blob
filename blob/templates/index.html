@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Walter Wang{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="w-full py-12 md:py-24 lg:py-32 bg-white">
+    <div class="container px-4 md:px-6 mx-auto">
+        <div class="flex flex-col items-center space-y-4 text-center">
+            <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                Welcome to Walter Wang's Portfolio
+            </h1>
+            <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+                A showcase of modern web development using Python and Flask.
+            </p>
+            <div class="space-x-4">
+                <a href="https://github.com/legolaswyq/blob" 
+                   class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md"
+                   target="_blank">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+    <div class="container px-4 md:px-6 mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for feature in features %}
+            <div class="p-6 bg-white rounded-lg shadow-sm">
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="w-12 h-12">
+                        <img src="{{ feature.icon }}" alt="{{ feature.title }}" class="w-full h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold">{{ feature.title }}</h3>
+                    <p class="text-gray-500">{{ feature.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Chatbot Section -->
+<section class="w-full py-4 md:py-8 lg:py-16 bg-white">
+    <div class="container px-4 md:px-6 mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">CHN ENG translator</h2>
+        <div class="w-full max-w-4xl mx-auto">
+            <iframe
+                src="https://udify.app/chatbot/MAKmH8wh9A7XKHuB"
+                style="width: 100%; height: 700px; outline: none;"
+                frameborder="0"
+                allow="microphone">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+    <div class="container px-4 md:px-6 mx-auto">
+        <div class="flex flex-col items-center space-y-4 text-center">
+            <h2 class="text-3xl font-bold">Ready to Get Started?</h2>
+            <p class="text-gray-500 md:text-xl max-w-[600px]">
+                Join me in exploring modern web development with Python and Flask.
+            </p>
+            <a href="/contact" 
+               class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md">
+                Get in Touch
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

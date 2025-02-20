@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Walter Wang{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Add any custom styles here */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-xl font-bold">Walter Wang</a>
+                <div class="flex items-center space-x-6">
+                    <a href="/" class="hover:text-blue-600">Home</a>
+                    <a href="/about" class="hover:text-blue-600">About</a>
+                    <a href="/contact" class="hover:text-blue-600">Contact</a>
+                    <a href="/signin" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                        Sign In
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-600">
+                <p>&copy; {{ year }} Walter Wang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

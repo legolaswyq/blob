@@ -58,8 +58,8 @@ def home():
             'icon': '/static/window.svg'
         },
         {
-            'title': 'Modern Stack',
-            'description': 'Beautiful, responsive designs with modern web technologies.',
+            'title': 'Dify',
+            'description': 'Powered by Dify.AI for intelligent chatbot and language translation capabilities.',
             'icon': '/static/globe.svg'
         }
     ]

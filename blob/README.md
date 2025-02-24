@@ -2,6 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+```bash
+npm install 
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 app.py
+```
+
+create .env file 
+
+```bash
+cp .env.example .env
+```
+
+
+
 First, run the development server:
 
 ```bash
